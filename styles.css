@@ -8,6 +8,10 @@ body {
     font-size: 14px;
 }
 
+.display-none {
+    display: none;
+}
+
 /*Navigation*/
 .navigation {
     display: flex;
@@ -232,3 +236,126 @@ body {
     color: white;
 }
 /*Product highlight*/
+
+/*Ingredients*/
+.ingredients {
+    padding-left: 137px;
+    padding-top: 10px;
+    width: 670px;
+    color: #4D4D4D;
+    font-weight: 300;
+}
+
+.ingredient {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-block: 20px;
+}
+
+.ingredient > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ingredient > div p {
+    font-size: 20px;
+}
+
+.ingredient > div i {
+    font-size: 20px;
+}
+
+.ingredient-line {
+    border-bottom: 1px solid #9F938B;
+}
+/*Ingredients*/
+
+.additional-items {
+    padding-bottom: 100px;
+}
+
+.carousel-container {
+    position: relative;
+    padding-inline: 100px;
+}
+
+.carousel-container i {
+    top: 50%;
+    cursor: pointer;
+    font-size: 29px;
+    position: absolute;
+    transform: translateY(-50%);
+    transition: transform 0.1s linear;
+}
+
+.carousel-container i:first-child{
+    left: 65px;
+}
+
+.carousel-container i:last-child{
+    right: 65px;
+}
+
+.carousel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 3) - 12px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    border-radius: 8px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel.no-transition {
+    scroll-behavior: auto;
+}
+
+.carousel.dragging {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+}
+
+.carousel.dragging .card {
+    cursor: grab;
+    user-select: none;
+}
+
+.card {
+    font-family: 'Lato', sans-serif;
+    color: #4D4D4D;
+    display: flex;
+    scroll-snap-align: start;
+    height: 587px;
+    width: 365px;
+    list-style: none;
+    flex-direction: column;
+}
+
+.card img {
+    height: 454px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card h2 {
+    font-size: 16px;
+    padding-block: 10px;
+}
+
+.card h2:last-of-type {
+    font-weight: 300;
+    padding: 0;
+}
+
+.card p {
+    font-size: 18px;
+    padding-top: 40px;
+}
