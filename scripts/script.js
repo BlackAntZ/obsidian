@@ -12,9 +12,12 @@ const ingredientExpand = document.querySelectorAll('.ingredient i');
 const wrapper = document.querySelector(".carousel-container");
 const carousel = document.querySelector(".carousel");
 const firstCardWidth = carousel.querySelector(".card").offsetWidth;
-const arrowBtns = document.querySelectorAll(".carousel-container i");
-const carouselChildrens = [...carousel.children];
-let isDragging = false, isAutoPlay = true, startX, startScrollLeft, timeoutId;
+const arrowButtons = document.querySelectorAll(".carousel-container i");
+const carouselChildren = [...carousel.children];
+let isDragging = false, startX, startScrollLeft, timeoutId;
+
+const cartNotification = document.querySelector('.cart-notification');
+const addToCartButton = document.getElementById('add-to-cart-button');
 
 const changeBuyClassesHandler = () => {
   if (buyOnce.alt === 'Empty checkbox') {
@@ -51,7 +54,7 @@ addAmount.addEventListener('click', () => {
 });
 
 subtractAmount.addEventListener('click', () => {
-  if (+price.value > 0) price.value = +price.value - 1;
+  if (+price.value > 1) price.value = +price.value - 1;
 })
 
 ingredientExpand.forEach(icon => icon.addEventListener('click', ev => {
@@ -70,12 +73,12 @@ ingredientExpand.forEach(icon => icon.addEventListener('click', ev => {
 let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
 
 // Insert copies of the last few cards to beginning of carousel for infinite scrolling
-carouselChildrens.slice(-cardPerView).reverse().forEach(card => {
+carouselChildren.slice(-cardPerView).reverse().forEach(card => {
   carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
 });
 
 // Insert copies of the first few cards to end of carousel for infinite scrolling
-carouselChildrens.slice(0, cardPerView).forEach(card => {
+carouselChildren.slice(0, cardPerView).forEach(card => {
   carousel.insertAdjacentHTML("beforeend", card.outerHTML);
 });
 
@@ -85,7 +88,7 @@ carousel.scrollLeft = carousel.offsetWidth;
 carousel.classList.remove("no-transition");
 
 // Add event listeners for the arrow buttons to scroll the carousel left and right
-arrowBtns.forEach(btn => {
+arrowButtons.forEach(btn => {
   btn.addEventListener("click", () => {
     carousel.scrollLeft += btn.id === "left" ? -firstCardWidth : firstCardWidth;
   });
@@ -132,3 +135,8 @@ carousel.addEventListener("mousemove", dragging);
 document.addEventListener("mouseup", dragStop);
 carousel.addEventListener("scroll", infiniteScroll);
 wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
+
+addToCartButton.addEventListener('click', () => {
+  if (cartNotification.classList.contains('display-none')) cartNotification.classList.remove('display-none');
+  cartNotification.textContent = `${+cartNotification.textContent + 1}`;
+})
