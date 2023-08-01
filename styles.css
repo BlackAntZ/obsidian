@@ -31,6 +31,10 @@ body {
     cursor: pointer;
 }
 
+.mobile-nav {
+    display: none;
+}
+
 .links {
     height: fit-content;
     display: flex;
@@ -80,6 +84,10 @@ body {
 .product-details {
     background-color: #F6F6F5;
     position: relative;
+}
+
+.mobile-product-location {
+    display: none;
 }
 
 .product-details > i {
@@ -371,3 +379,118 @@ body {
     padding-top: 40px;
 }
 /* Carousel */
+
+@media screen and (max-width: 500px) {
+    .logo {
+        align-items: center;
+    }
+
+    .mobile-nav {
+        display: block;
+        display: flex;
+        align-items: center;
+        padding-left: 28px;
+        gap: 10px;
+    }
+
+    .mobile-nav > img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .mobile-nav > i {
+        font-size: 28px;
+    }
+
+    .links {
+        display: none;
+    }
+
+    .icons {
+        width: fit-content;
+        padding-right: 28px;
+        padding-top: 0;
+        align-items: center;
+    }
+
+    .icons > i {
+        font-size: 28px;
+    }
+
+    .icons > i:first-of-type {
+        display: none;
+    }
+
+    .product-highlight {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-highlight > img {
+        height: 390px;
+    }
+    
+    .mobile-product-location {
+        display: block;
+        height: 42px;
+        background-color: #F6F6F5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+    }
+
+    .product-text > p {
+        display: none;
+    }
+
+    .product-details > i {
+        top: -420px;
+    }
+
+    .additional-text {
+        padding-top: 0;
+        padding-bottom: 30px;
+    }
+
+    .ingredients {
+        width: calc(100% - 20px);
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .carousel-container {
+        padding-inline: 10px;
+    }
+
+    #right,
+    #left {
+        display: none;
+    }
+
+    .carousel {
+        grid-auto-columns: 320px;
+    }
+
+    .card {
+        height: 455px;
+        align-items: unset;
+    }
+
+    .card img {
+        height: 352px;
+        width: 286px;
+    }
+
+    .card h2 {
+        font-weight: 400;
+    }
+
+    .card h2:last-of-type {
+        font-weight: 300;
+    }
+
+    .card p {
+        padding-top: 20px;
+    }
+}
