@@ -386,7 +386,6 @@ body {
     }
 
     .mobile-nav {
-        display: block;
         display: flex;
         align-items: center;
         padding-left: 28px;
@@ -431,7 +430,6 @@ body {
     }
     
     .mobile-product-location {
-        display: block;
         height: 42px;
         background-color: #F6F6F5;
         display: flex;
